@@ -1,7 +1,6 @@
 class Termleaf < Formula
   desc "Live-reloading PDF viewer for the terminal, built for editing LaTeX next to it"
   homepage "https://github.com/backyardbit/termleaf"
-  version "0.3.1"
   license "AGPL-3.0-or-later"
 
   on_macos do
