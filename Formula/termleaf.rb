@@ -5,23 +5,23 @@ class Termleaf < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.1/termleaf-aarch64-apple-darwin.tar.xz"
-      sha256 "9fc6df95ea86052d6606e72912220ec0fb734c4d5d6d94d8dfa915ed88e64297"
+      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.2/termleaf-aarch64-apple-darwin.tar.xz"
+      sha256 "6c9d8ff2b722a84774474b49018cd94ffda8442816f2b2e28ab7219c6d34eaa1"
     end
     on_intel do
-      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.1/termleaf-x86_64-apple-darwin.tar.xz"
-      sha256 "ef6917c6f5fc169d76b0a38a36136505936418d472831d90d0192ae2c799339c"
+      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.2/termleaf-x86_64-apple-darwin.tar.xz"
+      sha256 "759941703d240a0b41d1b0874c3832881f5c319e9879778a4bf4ac9c20c1d753"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.1/termleaf-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "f522a9242b8ceb57faa86b26e7ace19c41f6e141a1d587941ef9423138330b9f"
+      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.2/termleaf-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "f5f7238ae072599a46dfbe38aca056696aedea55ddea63fb369bfea25aba8023"
     end
     on_intel do
-      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.1/termleaf-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "def5ff8a31cd194c14d6cbd016732027534b98c8e42642e5fe70cb16b36a9570"
+      url "https://github.com/backyardbit/termleaf/releases/download/v0.3.2/termleaf-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "ac4475fbd1a04b53cabb4e6f58d97db9c8681cafd0ef89de936e78526fd70ea8"
     end
   end
 
