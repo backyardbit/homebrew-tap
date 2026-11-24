@@ -1,24 +1,17 @@
 class Claudesaurus < Formula
   desc "Graphical Claude Code chat for terminals that draw images, such as Rex"
   homepage "https://github.com/backyardbit/claudesaurus"
-  url "https://github.com/backyardbit/claudesaurus/releases/download/v0.1.0/claudesaurus-0.1.0.tar.gz"
-  sha256 "d52ac691975c58046806e28805327ccea27739142d6a52d330bf48104fd685fd"
+  url "https://github.com/backyardbit/claudesaurus/releases/download/v0.1.1/claudesaurus-0.1.1.tar.gz"
+  sha256 "54c3de6dc5a1e386d9e27591bdd252cb7afb4dca6fe6d60e9aa696cfca2e7863"
   license "MIT"
 
   depends_on "node"
 
+  # Only the built app is installed here. Its runtime, PixelGUI's Electron and Claude Code, is
+  # made of signed programs that Homebrew would rewrite and re-sign, which stops them from
+  # starting on macOS. The app downloads them into the user's data folder on first run.
   def install
     libexec.install Dir["*"]
-
-    # PixelGUI's install script moves its Electron runtime into place with a rename, which only
-    # works within one volume, so temporary files go next to where they end up.
-    ENV["TMPDIR"] = (libexec/"tmp").tap(&:mkpath)
-    cd libexec do
-      # The pnpm that wrote the lockfile. Newer ones skip the install scripts of dependencies.
-      system "npx", "--yes", "pnpm@9.15.4", "install", "--prod", "--frozen-lockfile"
-    end
-    rm_r libexec/"tmp"
-
     (bin/"claudesaurus").write <<~SH
       #!/bin/bash
       exec "#{Formula["node"].opt_bin}/node" "#{libexec}/bin/claudesaurus.mjs" "$@"
@@ -27,6 +20,11 @@ class Claudesaurus < Formula
 
   def caveats
     <<~EOS
+      The first run downloads the app's runtime into ~/.local/share/claudesaurus, which takes
+      about a minute. To do that ahead of time, run:
+        claudesaurus --setup
+      Uninstalling leaves that folder behind. Delete it to free the space.
+
       Claudesaurus uses your Claude Code login. If Claude Code is not logged in on this
       machine, run `claude` and then `/login` first.
 
