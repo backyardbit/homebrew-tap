@@ -1,8 +1,8 @@
 class Claudesaurus < Formula
   desc "Graphical Claude Code chat for terminals that draw images, such as Rex"
   homepage "https://github.com/backyardbit/claudesaurus"
-  url "https://github.com/backyardbit/claudesaurus/releases/download/v0.1.1/claudesaurus-0.1.1.tar.gz"
-  sha256 "54c3de6dc5a1e386d9e27591bdd252cb7afb4dca6fe6d60e9aa696cfca2e7863"
+  url "https://github.com/backyardbit/claudesaurus/releases/download/v0.2.0/claudesaurus-0.2.0.tar.gz"
+  sha256 "28d96fc917896b31900d4328c254551595cd3ce10ef662615e8eeb6acb28ddbb"
   license "MIT"
 
   depends_on "node"
@@ -14,6 +14,7 @@ class Claudesaurus < Formula
     libexec.install Dir["*"]
     (bin/"claudesaurus").write <<~SH
       #!/bin/bash
+      export CLAUDESAURUS_LAUNCHER="#{opt_bin}/claudesaurus"
       exec "#{Formula["node"].opt_bin}/node" "#{libexec}/bin/claudesaurus.mjs" "$@"
     SH
   end
@@ -30,6 +31,11 @@ class Claudesaurus < Formula
 
       Run `claudesaurus` in a terminal that draws images with the Kitty graphics protocol,
       such as Rex, Ghostty or kitty.
+
+      In Rex, the first run (or `claudesaurus --setup`) adds two actions to the command palette,
+      to open Claudesaurus in a horizontal or vertical split. They are loaded from a marked
+      block in ~/.config/rex/init.lua. To take them out, run:
+        claudesaurus --remove-rex-actions
     EOS
   end
 
