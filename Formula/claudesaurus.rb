@@ -1,8 +1,8 @@
 class Claudesaurus < Formula
   desc "Graphical Claude Code chat for terminals that draw images, such as Rex"
   homepage "https://github.com/backyardbit/claudesaurus"
-  url "https://github.com/backyardbit/claudesaurus/releases/download/v0.4.0/claudesaurus-0.4.0.tar.gz"
-  sha256 "495313414ff6836313fd4137f05ec5f49ecea9073ada40ce10d84dc8f7027fba"
+  url "https://github.com/backyardbit/claudesaurus/releases/download/v0.4.1/claudesaurus-0.4.1.tar.gz"
+  sha256 "51da8d20ae14ff46b610749fc910a39049148695db2f0b87c31c67ee139ec5b2"
   license "MIT"
 
   depends_on "node"
